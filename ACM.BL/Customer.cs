@@ -8,10 +8,18 @@ namespace ACM.BL
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
+        public Customer(int customerId)
+        {
+            CustomerId = customerId;
+        }
+
         public int CustomerId { get; private set; }
         public string EmailAddress { get; set; }
         public string FirstName { get; set; } //backing field created automatically, shorthand version
-
         public string FullName
         {
             get
@@ -28,7 +36,7 @@ namespace ACM.BL
                 return fullName;
             }
         }
-
+        public static int InstanceCount { get; set; }
         private string _lastName; //backing field; full property syntax
         public string LastName 
         {
@@ -40,6 +48,55 @@ namespace ACM.BL
             {
                 _lastName = value;
             }
+        }
+
+
+        ///<summary>
+        /// Retrieve one customer.
+        /// </summary>
+        /// <returns></returns>
+        public Customer Retrieve(int customerId)
+        {
+            //code that retrieves the defined customer
+
+            return new Customer();
+        }
+
+        ///<summary>
+        /// Retrieve all customers
+        /// </summary>
+        /// <returns></returns>
+        public List<Customer> Retrieve()
+        {
+            //code that retrieves all of the customers
+
+            return new List<Customer>();
+        }
+
+
+        ///<summary>
+        /// Saves the current customer.
+        /// </summary>
+        /// <returns></returns>
+        public bool Save()
+        {
+            //code that saves the defined customer
+
+            return true;
+        }
+
+        ///<summary>
+        /// Validates the customer data.
+        /// </summary>
+        /// <returns></returns>
+        public bool Validate()
+        {
+            var isValid = true;
+
+            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+
+            return isValid;
         }
     }
 }
