@@ -46,7 +46,6 @@ namespace ACM.BL
             var isValid = true;
             if (string.IsNullOrEmpty(ProductName)) isValid = false;
             if (ProductCurrentPrice == null) isValid = false;
-
             return isValid;
         }
 
