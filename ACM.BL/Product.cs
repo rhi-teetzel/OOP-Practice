@@ -17,30 +17,13 @@ namespace ACM.BL
             ProductId = productId;
         }
 
-        public int ProductId { get; set; } 
+        public int ProductId { get; private set; } 
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public decimal? ProductCurrentPrice { get; set; } //the '?' makes it a nullable type, so 'null' is distinguished from zero
         public static int InstanceCount { get; set; }
 
-        public Product Retrieve(int productId)
-        {
-            //code to retrieve one specific product
-            return new Product();
-        }
-
-        public List<Product> Retrieve()
-        {
-            //code to retrieve list of all products
-            return new List<Product>();
-        }
-
-        public bool Save()
-        {
-            //code to save
-            return true;
-        }
-
+        
         public bool Validate()
         {
             var isValid = true;

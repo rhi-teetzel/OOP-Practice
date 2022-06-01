@@ -17,9 +17,9 @@ namespace ACM.BL
             OrderItemId = orderItemId;
         }
 
-        public int OrderItemId { get; set; }
-        public string OrderItemProduct { get; set; }
-        public int? OrderItemQuantity { get; set; }
+        public int OrderItemId { get; private set; }
+        public int ProductId { get; set; }
+        public int OrderItemQuantity { get; set; }
         public decimal? OrderItemPurchasePrice { get; set; }
         
         public OrderItem Retrieve(int orderItemId)
@@ -43,8 +43,10 @@ namespace ACM.BL
         public bool Validate()
         {
             var isValid = true;
-            if (string.IsNullOrEmpty(OrderItemProduct)) isValid = false;
-            if (OrderItemQuantity == null) isValid = false;
+
+            if (OrderItemQuantity <= 0) isValid = false;
+            if (ProductId <= 0) isValid = false;
+            if (OrderItemPurchasePrice == null) isValid = false;
             return isValid;
         }
     }
