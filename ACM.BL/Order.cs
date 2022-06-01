@@ -14,13 +14,11 @@ namespace ACM.BL
         }
         public Order(int orderId)
         {
-            orderId = orderId;
+            OrderId = orderId;
         }
 
         public int OrderId { get; set; }
-        public string OrderedProduct { get; set; }
-        public int OrderQuantity { get; set; }
-        public decimal? OrderPurchasePrice { get; set; }
+        public string OrderDate { get; set; }
         public static int InstanceCount { get; set; }
         
         public Order Retrieve(int orderId)
@@ -44,8 +42,7 @@ namespace ACM.BL
         public bool Validate()
         {
             var isValid = true;
-            if (string.IsNullOrEmpty(OrderedProduct)) isValid = false;
-            if (OrderPurchasePrice == null) isValid = false;
+            if (string.IsNullOrEmpty(OrderDate)) isValid = false;
             return isValid;
         }
 
